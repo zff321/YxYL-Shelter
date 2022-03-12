@@ -1,0 +1,1 @@
+"u_id"	"u_username"	"u_userpassword"	"u_gender"	"u_adress"	"u_tele"	"u_email"
