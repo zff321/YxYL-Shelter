@@ -1,5 +1,20 @@
 # YxYL-Shelter
 
+#### 技术选型
+
+1. web层
+   - servlet：前端控制器
+   - html：视图展示
+   - BeanUtils：数据封装
+   - Jackson：json数据序列化工具
+
+2. service层
+
+3. Dao层
+   1. JDBCTemplate：mysqlJDBC连接器工具
+   2. Mysql：数据库
+   3. Druid：数据库连接池
+
 #### 数据库设计
 
 ##### 用户表：
