@@ -9,6 +9,18 @@ public class User {
     private String u_tele;
     private String u_email;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "u_id=" + u_id +
+                ", u_username='" + u_username + '\'' +
+                ", u_password='" + u_password + '\'' +
+                ", u_gender='" + u_gender + '\'' +
+                ", u_address='" + u_address + '\'' +
+                ", u_tele='" + u_tele + '\'' +
+                ", u_email='" + u_email + '\'' +
+                '}';
+    }
 
     public String getU_email() {
         return u_email;

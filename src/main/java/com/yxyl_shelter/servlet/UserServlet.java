@@ -2,6 +2,7 @@ package com.yxyl_shelter.servlet;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yxyl_shelter.domain.Info;
 import com.yxyl_shelter.domain.User;
 import com.yxyl_shelter.service.UserService;
@@ -11,6 +12,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
@@ -26,7 +28,7 @@ public class UserServlet extends BaseServlet {
      * @param response
      * @throws JsonProcessingException
      */
-    public void login(HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException {
+    public void login(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         Map<String, String[]> map = request.getParameterMap();
 
@@ -54,6 +56,14 @@ public class UserServlet extends BaseServlet {
             info.setFlag(true);
             request.getSession().setAttribute("user", u);
         }
+        System.out.println(u.toString());
+
+        //response results to foreground client(前台客户端)
+        ObjectMapper mapper = new ObjectMapper();
+        response.setContentType("application/json;charset=utf-8");
+        mapper.writeValue(response.getOutputStream(), info);
+
+
     }
 
 

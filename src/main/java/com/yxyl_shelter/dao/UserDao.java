@@ -3,10 +3,12 @@ package com.yxyl_shelter.dao;
 import com.yxyl_shelter.domain.User;
 
 public interface UserDao {
+
     /**
-     *
-     * @param user
+     * 查询USer
+     * @param u_username
+     * @param u_password
      * @return
      */
-    User findUserByName(User user);
+    User findUserByUsernameAndPassword(String u_username, String u_password);
 }
