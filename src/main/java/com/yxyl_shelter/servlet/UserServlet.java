@@ -67,4 +67,46 @@ public class UserServlet extends BaseServlet {
     }
 
 
+    public void register(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+
+        //get values
+        Map<String, String[]> map = req.getParameterMap();
+        //encapsulated object
+        User user = new User();
+        try {
+            BeanUtils.populate(user, map);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
+        boolean flag = userService.register(user);
+        Info info = new Info();
+
+        if (flag){
+            //成功
+            info.setFlag(true);
+        }else {
+            //失败
+            info.setFlag(false);
+            info.setErrorMsg("注册失败");
+        }
+
+        //序列化json
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(info);
+
+        resp.setContentType("application/json;charset=utf-8");
+        resp.getWriter().write(json);
+
+
+
+
+
+
+
+    }
+
+
 }

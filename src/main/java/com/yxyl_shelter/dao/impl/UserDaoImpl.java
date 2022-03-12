@@ -24,4 +24,24 @@ public class UserDaoImpl implements UserDao {
         }
         return user;
     }
+
+    @Override
+    public User findUserByUsername(String username) {
+        User user = null;
+
+        try {
+            String sql = "select * from user where u_username = ?";
+            user = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), username);
+        } catch (DataAccessException e) {
+        }
+
+        return user;
+    }
+
+    @Override
+    public void save(User u) {
+
+        String sql = "";
+        jdbcTemplate.query(sql,u.);
+    }
 }

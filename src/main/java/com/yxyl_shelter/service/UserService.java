@@ -10,4 +10,12 @@ public interface UserService {
      * @return
      */
     User findUserByName(User user);
+
+    /**
+     * 注册USer
+     * @param user
+     * @return
+     */
+    boolean register(User user);
+
 }

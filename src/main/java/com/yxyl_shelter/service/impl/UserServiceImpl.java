@@ -17,4 +17,21 @@ public class UserServiceImpl implements UserService {
 
         return userDao.findUserByUsernameAndPassword(user.getU_username(), user.getU_password());
     }
+
+    @Override
+    public boolean register(User user) {
+        //先查找是否存在该用户
+        User u = userDao.findUserByUsername(user.getU_username());
+
+        if (u != null) {
+            //存在
+            //不用保存
+            return false;
+        } else {
+            //不存在
+            //保存
+            userDao.save(u);
+            return true;
+        }
+    }
 }
