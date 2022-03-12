@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
         } else {
             //不存在
             //保存
-            userDao.save(u);
+            userDao.save(user);
             return true;
         }
     }

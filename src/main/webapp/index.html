@@ -35,11 +35,15 @@
                 $.post("user/login", $("form").serialize(), function (data) {
                     if (data.flag) {
                         //login success
-                        location.href="success.html";
+                        location.href = "success.html";
                     } else {
                         alert("账号或密码错了咯")
                     }
                 })
+            })
+
+            $("#register").click(function () {
+                location.href = "register.html"
             })
         }
     )
@@ -60,6 +64,7 @@
     </div>
     <br>
     <button type="button" class="btn btn-default" id="submit">确认</button>
+    <button type="button" class="btn btn-default" id="register">要不要注册咯?</button>
 </form>
 
 

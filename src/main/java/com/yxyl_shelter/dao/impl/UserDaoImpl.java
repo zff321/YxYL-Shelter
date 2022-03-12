@@ -40,8 +40,14 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void save(User u) {
-
-        String sql = "";
-        jdbcTemplate.query(sql,u.);
+        String sql = "insert user" +
+                "(u_id," +
+                "u_username," +
+                "u_password," +
+                "u_gender," +
+                "u_address," +
+                "u_tele," +
+                "u_email) values (null,?,?,?,?,?,?)";
+        jdbcTemplate.update(sql,u.getU_username(),u.getU_password(),u.getU_gender(),u.getU_address(),u.getU_tele(),u.getU_email());
     }
 }

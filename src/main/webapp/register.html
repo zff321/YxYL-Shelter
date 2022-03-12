@@ -25,43 +25,68 @@
             margin-top: 20px;
         }
     </style>
+
+    <script>
+
+
+        $(function () {
+            $("#register").click(function () {
+
+                $.post("user/register",$("form").serialize(),function (data){
+                    if (data.flag){
+                        //注册成功
+                        //跳转登录页面
+                        alert("成功了，登录吧")
+                        location.href ="index.html"
+                    }else {
+                        //注册失败
+                        //更换用户名之类的
+                        alert("注册失败，更换用户名逝逝？")
+                    }
+
+                })
+            })
+        })
+    </script>
+
+
 </head>
 <body>
 
 <form class="form-inline" id="form" action="" method="post" accept-charset="utf-8">
     <div class="form-group">
-        <label for="username">账号</label>
-        <input type="text" class="form-control" id="username" name="u_username" placeholder="请输入你的账号">
+        <label for="u_username">账号</label>
+        <input type="text" class="form-control" id="u_username" name="u_username" placeholder="请输入你的账号">
     </div>
     <br>
     <div class="form-group">
-        <label for="password">密码</label>
-        <input type="password" class="form-control" id="password" name="u_password" placeholder="请输入你的密码">
+        <label for="u_password">密码</label>
+        <input type="password" class="form-control" id="u_password" name="u_password" placeholder="请输入你的密码">
     </div>
     <br>
     <div class="form-group">
-        <label for="gender">性别</label>
-        <input type="text" class="form-control" id="gender" name="u_gender" placeholder="请输入你的性别">
+        <label for="u_gender">性别</label>
+        <input type="text" class="form-control" id="u_gender" name="u_gender" placeholder="请输入你的性别">
     </div>
     <br>
     <div class="form-group">
-        <label for="email">邮箱</label>
-        <input type="text" class="form-control" id="email" name="u_email" placeholder="请输入你的邮箱">
+        <label for="u_email">邮箱</label>
+        <input type="text" class="form-control" id="u_email" name="u_email" placeholder="请输入你的邮箱">
     </div>
     <br>
     <div class="form-group">
-        <label for="tele">电话</label>
-        <input type="text" class="form-control" id="tele" name="u_tele" placeholder="请输入你的电话">
+        <label for="u_tele">电话</label>
+        <input type="text" class="form-control" id="u_tele" name="u_tele" placeholder="请输入你的电话">
     </div>
     <br>
     <div class="form-group">
-        <label for="address">住址</label>
-        <input type="text" class="form-control" id="address" name="u_adress" placeholder="请输入你的住址">
+        <label for="u_address">住址</label>
+        <input type="text" class="form-control" id="u_address" name="u_address" placeholder="请输入你的住址">
     </div>
     <br>
 
 
-    <button type="button" class="btn btn-default" id="submit">确认</button>
+    <button type="button" class="btn btn-default" id="register">注册</button>
 </form>
 
 
