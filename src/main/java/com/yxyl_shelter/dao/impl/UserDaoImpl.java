@@ -13,6 +13,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User findUserByName(User user) {
 
-        jdbcTemplate.queryForObject(sql,new BeanPropertyRowMapper<User>(User.class),user);
+        String sql = "select * from user where ";
+        jdbcTemplate.queryForObject(sql,new BeanPropertyRowMapper<User>(User.class));
     }
 }

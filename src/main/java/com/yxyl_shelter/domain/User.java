@@ -7,7 +7,16 @@ public class User {
     private String u_gender;
     private String u_address;
     private String u_tele;
-    private String u_eamil;
+    private String u_email;
+
+
+    public String getU_email() {
+        return u_email;
+    }
+
+    public void setU_email(String u_email) {
+        this.u_email = u_email;
+    }
 
 
     public int getU_id() {
@@ -58,11 +67,4 @@ public class User {
         this.u_tele = u_tele;
     }
 
-    public String getU_eamil() {
-        return u_eamil;
-    }
-
-    public void setU_eamil(String u_eamil) {
-        this.u_eamil = u_eamil;
-    }
 }
